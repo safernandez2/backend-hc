@@ -1,7 +1,7 @@
 // reserva.entity.ts
-
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn, OneToMany } from 'typeorm';
-import { Habitacion } from '../habitaciones/habitacion.entity';  // Ajusta según la estructura de tu proyecto
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { Habitacion } from '../habitaciones/habitacion.entity';
+import { forwardRef } from '@nestjs/common';
 
 @Entity('reservas')
 export class Reserva {
@@ -22,14 +22,11 @@ export class Reserva {
 
   @Column({ name: 'fecha_fin', type: 'timestamp' })
   fechaFin: Date;
-  
-  @Column({ name: 'estado', default: 'Pendiente' })  // Ajusta según tus necesidades
-  estado: string;
 
   @Column({ name: 'numero_cliente'})
   numeroCliente: string;
 
   @ManyToOne(() => Habitacion, { onDelete: 'CASCADE' })
-  @JoinColumn({ name: 'habitacionid' })
-  habitacion: Habitacion;
+@JoinColumn({ name: 'habitacionid' })
+habitacion: Habitacion;
 }

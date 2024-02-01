@@ -10,6 +10,7 @@ export class Usuario {
   @Column({ name: 'nombre_usuario',type: 'varchar' })
   nombreUsuario: string;
   
-  @Column({ type: 'varchar' }) // Cambiado a 'varchar'
+  @Column({ type: 'varchar' }) 
   password: string;
 }
+  

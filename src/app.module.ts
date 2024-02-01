@@ -4,8 +4,6 @@ import { HabitacionesModule } from './habitaciones/habitaciones.module';  // Aju
 import { Habitacion } from './habitaciones/habitacion.entity';
 import { ReservasModule } from './reservas/reserva.module';
 import { Reserva } from './reservas/reserva.entity';
-import { EstadoReservaModule } from './estadoreserva/estadoreserva.module';
-import { EstadoReserva } from './estadoreserva/estadoreserva.entity';
 import { Usuario } from './usuario/usuario.entity';
 import { UsuarioModule } from './usuario/usuario.module';
 
@@ -19,12 +17,11 @@ import { UsuarioModule } from './usuario/usuario.module';
       username: 'postgres',
       password: 'admin123',
       database: 'hosteriacap',
-      entities: [Habitacion, Reserva, EstadoReserva, Usuario],
+      entities: [Habitacion, Reserva, , Usuario],
       synchronize: false,
     }),
     HabitacionesModule, 
     ReservasModule,
-    EstadoReservaModule,
     UsuarioModule,
      // Ajusta según la estructura de tu proyecto
   ],

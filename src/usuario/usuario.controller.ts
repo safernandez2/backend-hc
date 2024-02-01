@@ -11,6 +11,7 @@ export class UsuarioController {
   create(@Body() usuario: Usuario) {
     return this.usuarioService.create(usuario);
   }
+  
 
   @Get()
   async getAll():Promise<Usuario[]> {
@@ -22,9 +23,9 @@ export class UsuarioController {
   findById(@Param('id') usuarioid: number) {
     return this.usuarioService.findById(usuarioid);
   }
-
   @Put(':id')
   update(@Param('id') usuarioid: number, @Body() usuario: Usuario) {
+    console.log('Received Data:', usuarioid, usuario);
     return this.usuarioService.update(usuarioid, usuario);
   }
 

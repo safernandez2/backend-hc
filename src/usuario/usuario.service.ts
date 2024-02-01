@@ -32,11 +32,21 @@ export class UsuarioService {
   }
   
   
-  async update(usuarioid: number, usuario: Usuario): Promise<Usuario> {
-    await this.usuarioRepository.update(usuarioid, usuario);
-    return this.findById(usuarioid); // Devuelve el usuario actualizado
+  async update(usuarioid: number, usuarioData: Usuario): Promise<Usuario> {
+    const usuario = await this.findById(usuarioid); // Obtener el usuario existente
+  
+    if (!usuario) {
+      throw new NotFoundException(`Usuario con ID ${usuarioid} no encontrado`);
+    }
+  
+    // Actualizar el usuario con los nuevos datos
+    usuario.nombreUsuario = usuarioData.nombreUsuario || usuario.nombreUsuario;
+    usuario.password = usuarioData.password || usuario.password;
+  
+    // Guardar el usuario actualizado
+    return this.usuarioRepository.save(usuario);
   }
-
+  
   async delete(usuarioid: number): Promise<void> {
     const result = await this.usuarioRepository.delete(usuarioid);
 
