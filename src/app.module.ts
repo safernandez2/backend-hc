@@ -12,11 +12,7 @@ import { UsuarioModule } from './usuario/usuario.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'dpg-cn61708cmk4c73dtlf70-a',  
-      port: 5432,
-      username: 'adminhc',
-      password: 'GOazF3G3CN13UNjCAM2sIffwTaw52BAk',
-      database: 'hosteriacap',
+      url: 'postgres://mkkwutyg:tY85CYMMfzHQvTV66hZq15qQRo18e2hn@silly.db.elephantsql.com/mkkwutyg',
       entities: [Habitacion, Reserva, Usuario],
       synchronize: false,
     }),
