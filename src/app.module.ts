@@ -12,10 +12,10 @@ import { UsuarioModule } from './usuario/usuario.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
+      host: 'dpg-cn61708cmk4c73dtlf70-a',  
       port: 5432,
-      username: 'postgres',
-      password: 'admin123',
+      username: 'adminhc',
+      password: 'GOazF3G3CN13UNjCAM2sIffwTaw52BAk',
       database: 'hosteriacap',
       entities: [Habitacion, Reserva, Usuario],
       synchronize: false,
